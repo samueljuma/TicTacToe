@@ -1,0 +1,134 @@
+:root {
+  --bg: #1a1c2c;
+  --panel: #24263a;
+  --accent: #6c5ce7;
+  --x-color: #ff6b6b;
+  --o-color: #4ecdc4;
+  --text: #f0f0f5;
+  --muted: #8a8da8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #2b2e4a, var(--bg));
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+}
+.app {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 28px 32px 36px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  width: min(92vw, 420px);
+  text-align: center;
+}
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+.mode-select {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.mode-btn {
+  flex: 1;
+  padding: 9px 6px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #32354f;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.mode-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.status {
+  font-size: 1.05rem;
+  min-height: 28px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 auto 18px;
+  width: 100%;
+  max-width: 320px;
+}
+.cell {
+  aspect-ratio: 1 / 1;
+  background: #2f3250;
+  border: none;
+  border-radius: 12px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.1s;
+  user-select: none;
+}
+.cell:hover:not(:disabled) {
+  background: #393c5c;
+}
+.cell:disabled {
+  cursor: default;
+}
+.cell.x { color: var(--x-color); }
+.cell.o { color: var(--o-color); }
+.cell.win {
+  background: var(--accent);
+  color: white;
+}
+.cell.pop {
+  animation: pop 0.18s ease;
+}
+@keyframes pop {
+  0% { transform: scale(0.6); }
+  100% { transform: scale(1); }
+}
+.controls {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  flex: 1;
+  padding: 11px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn.secondary {
+  background: #32354f;
+}
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.scoreboard span { color: var(--text); font-weight: 700; }

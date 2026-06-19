@@ -16,10 +16,23 @@ A simple Tic Tac Toe game you can play right in your browser.
 
 ## Running it locally
 
-This is a single static HTML file with no build step or dependencies. Just open `index.html` in your browser:
+This is a static site with no build step or dependencies. Just open `index.html` in your browser:
 
 ```bash
 open index.html
+```
+
+## Project structure
+
+```
+index.html          Markup only
+css/styles.css       All styles
+js/constants.js      Win-line definitions
+js/gameLogic.js      Win/draw checking (pure game rules)
+js/ai.js             Minimax logic for the unbeatable CPU
+js/board.js          Board component — renders the grid, handles cell clicks
+js/scoreboard.js     Scoreboard component — tracks and renders scores
+js/app.js            Controller — holds game state, wires everything together
 ```
 
 ## Deployment
